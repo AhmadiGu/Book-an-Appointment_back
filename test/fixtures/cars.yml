@@ -4,7 +4,7 @@ one:
   name: MyString
   description: MyText
   photo: MyString
-  car_model: MyString
+  car_model: MyStringP
   duration: 1
   price_per_day: 9.99
   user: one
