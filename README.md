@@ -142,7 +142,7 @@ To run tests, run the following command:
 - GitHub: [@SekoViper](https://github.com/SekoViper)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/livingstone-dameh/)
 
-👤 **ABDELHAFID**
+👤 **Abdelhafid**
 
 - GitHub: [@Nejjari001](https://github.com/Nejjari001)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdelhafid-nejjari/)
