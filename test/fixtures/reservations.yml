@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: MyString
+  date: 2023-04-24
+  city: MyString
+  duration: 1
+  user: one
+  car: one
+
+two:
+  item: MyString
+  date: 2023-04-24
+  city: MyString
+  duration: 1
+  user: two
+  car: two
