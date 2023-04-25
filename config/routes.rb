@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       resources :cars, only: [:show]
       resources :reservations, only: [:index, :show, :create]
   end
+ end
 end
