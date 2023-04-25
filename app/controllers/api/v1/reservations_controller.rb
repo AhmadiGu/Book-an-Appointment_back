@@ -19,9 +19,15 @@ class Api::V1::ReservationsController < ApplicationController
     end
   end
 
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    render json: { message: 'Reservation deleted' }, status: :ok
+  end
+
   private
 
   def reservation_params
-    params.require(:reservation).permit(:date, :item, :city, :duration, :user_id, :car_id)
+    params.require(:reservation).permit(:date, :item, :city, :duration, :car_model, :user_id)
   end
 end

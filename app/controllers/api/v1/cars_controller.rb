@@ -18,9 +18,15 @@ class Api::V1::CarsController < ApplicationController
     render json: @car
   end
 
+  def destroy
+    @car = Car.find(params[:id])
+    @car.destroy
+    render json: { message: 'Car deleted' }, status: :ok
+  end
+
   private
 
   def car_params
-    params.require(:car).permit(:name, :description, :photo, :price_per_day, :car_model)
+    params.require(:car).permit(:name, :description, :photo, :price_per_day, :car_model, :user_id)
   end
 end
