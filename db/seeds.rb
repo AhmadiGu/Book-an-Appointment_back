@@ -17,3 +17,4 @@ car3 = Car.create(name: "Ford Mustang",photo: " png" , description: "Sports car"
 reservation1 = Reservation.create(user_id: user1.id, car_id: car1.id, date: Date.today + 1, city: "London", duration: 22, item: car1.name)
 reservation2 = Reservation.create(user_id: user1.id, car_id: car2.id, date: Date.today + 2, city: "London", duration: 33, item: car2.name)
 reservation3 = Reservation.create(user_id: user2.id, car_id: car3.id, date: Date.today + 5, city: "London", duration: 23, item: car3.name)
+
