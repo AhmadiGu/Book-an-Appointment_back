@@ -234,7 +234,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
-  rspec-rails
+  rspec-rails (~> 5.0)
   rswag (~> 2.5)
   shoulda-matchers (~> 5.0)
   swagger-blocks (~> 3.0)

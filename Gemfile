@@ -11,8 +11,6 @@ gem 'devise', '~> 4.9'
 
 gem 'rswag', '~> 2.5'
 
-gem 'rspec-rails'
-
 gem 'swagger-blocks', '~> 3.0'
 
 gem 'factory_bot_rails'
