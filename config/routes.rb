@@ -1,22 +1,16 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-
-#   namespace :api do
-#     namespace :v1 do
-
-#       resources :cars, only: [:show]
-#       resources :reservations, only: [:index, :show, :create]
-#   end
-#  end
-
-mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
   use_doorkeeper
   devise_for :users
 
-
   draw :api
+
+  # root 'documentation#index', as: 'documentation'
+
+  # get '/documentation', to: 'documentation#index'
+  # get '/documentation/authentication', to: 'documentation#authentication'
+  # get '/documentation/users', to: 'documentation#users'
+  # get '/documentation/classes', to: 'documentation#classes'
+  # get '/documentation/reservations', to: 'documentation#reservations'
 end

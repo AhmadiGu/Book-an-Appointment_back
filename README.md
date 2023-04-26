@@ -55,6 +55,9 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## 🩺 Documentation <a name="key-features"></a>
+
+- [Api docs](http://127.0.0.1:3000/api-docs/index.html)
 
 ## 🎨 Link to Frontend <a name="key-features"></a>
 
