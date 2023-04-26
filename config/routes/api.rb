@@ -6,9 +6,10 @@ namespace :api do
       get '/users/me', to: 'users#me'
       post '/cars', to: 'cars#index', as: :cars
       post 'cars', to: 'cars#create'
-      post 'cars', to: 'cars#destroy'
+      delete 'cars', to: 'cars#destroy'
       get 'cars/(:id)', to: 'cars#show'
-      get 'cars/(:id)/reservations', to: 'reservations#index'
+      get '/reservations', to: 'reservations#index'
+      post 'reservations/(:id)', to: 'reservations#show'
       post 'cars/(:id)/reservations', to: 'reservations#create'
     end
   end
