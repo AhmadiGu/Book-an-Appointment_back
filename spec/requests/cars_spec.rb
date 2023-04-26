@@ -117,7 +117,6 @@ RSpec.describe 'cars', type: :request do
                },
                required: %w[name description photo car_model price_per_day user_id]
 
-
         let(:id) do
           Car.create(name: 'Tesla', description: 'An electric car', photo: 'tesla.jpg', car_model: 'S',
                      price_per_day: 50, user_id: 1).id
