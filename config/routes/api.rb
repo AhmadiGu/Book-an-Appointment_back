@@ -4,7 +4,7 @@ namespace :api do
         post '/', to: 'registrations#create', as: :user_registration
       end
       get '/users/me', to: 'users#me'
-      post '/cars', to: 'cars#index', as: :cars
+      get '/cars', to: 'cars#index', as: :cars
       post 'cars', to: 'cars#create'
       delete 'cars', to: 'cars#destroy'
       get 'cars/(:id)', to: 'cars#show'

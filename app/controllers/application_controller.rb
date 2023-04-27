@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # Doorkeeper code
-  before_action :doorkeeper_authorize!
+  before_action :doorkeeper_authorize!, except: %i[index show create]
   respond_to :json
 
   protected
