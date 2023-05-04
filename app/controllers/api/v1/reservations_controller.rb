@@ -1,33 +1,39 @@
-class Api::V1::ReservationsController < ApplicationController
-  def index
-    @reservations = Reservation.all
-    render json: { message: 'Showing Reservations', reservations: @reservations }, status: :ok
-  end
+module Api
+  module V1
+    class ReservationsController < ApiController
+      before_action :doorkeeper_authorize!
+      before_action :current_user
+      respond_to :json
 
-  def show
-    @reservations = Reservation.where(user_id: params[:id])
-    render json: { message: 'Showing Reservations', reservations: @reservations }, status: :ok
-  end
+      def index
+        if @current_user.nil?
+          render json: { error: 'Not Authorized' }, status: :unauthorized
+        else
+          @reservations = @current_user.reservations
+          render json: @reservations
+        end
+      end 
 
-  def create
-    @reservation = Reservation.new(reservation_params)
+      def show
+        @reservations = Reservation.where(user_id: params[:id])
+        render json: { message: 'Showing Reservations', reservations: @reservations }, status: :ok
+      end
 
-    if @reservation.save
-      render json: { reservation: @reservation }, status: :created
-    else
-      render json: { errors: @reservation.errors }, status: :unprocessable_entity
+      def create
+        @reservation = Reservation.new(reservation_params)
+        @reservation.user = @current_user
+        if @reservation.save
+          render json: { reservation: @reservation }, status: :created
+        else
+          render json: { errors: @reservation.errors }, status: :unprocessable_entity
+        end
+      end 
+
+      private
+
+      def reservation_params
+        params.require(:reservation).permit(:date, :item, :city, :duration, :car_id, :user_id)
+      end
     end
-  end
-
-  def destroy
-    @reservation = Reservation.find(params[:id])
-    @reservation.destroy
-    render json: { message: 'Reservation deleted' }, status: :ok
-  end
-
-  private
-
-  def reservation_params
-    params.require(:reservation).permit(:date, :item, :city, :duration, :car_id, :user_id)
   end
 end
