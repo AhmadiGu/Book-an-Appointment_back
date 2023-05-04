@@ -11,7 +11,7 @@ RSpec.describe Api::V1::ReservationsController, type: :request do
 
   before do
     post api_v1_user_reserve_path, params: {
-      reservation: { car_id: car.id, date: '2023-04-11', city: 'New York', 
+      reservation: { car_id: car.id, date: '2023-04-11', city: 'New York',
                      duration: 22, item: car.name, user_id: user.id }
     }, headers: {
       Authorization: "Bearer #{access_token}"
