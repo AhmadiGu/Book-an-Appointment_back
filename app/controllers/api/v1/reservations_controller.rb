@@ -12,7 +12,7 @@ module Api
           @reservations = @current_user.reservations
           render json: @reservations
         end
-      end 
+      end
 
       def show
         @reservations = Reservation.where(user_id: params[:id])
@@ -27,7 +27,7 @@ module Api
         else
           render json: { errors: @reservation.errors }, status: :unprocessable_entity
         end
-      end 
+      end
 
       private
 

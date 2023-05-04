@@ -4,7 +4,7 @@ module Api
       before_action :doorkeeper_authorize!
       before_action :current_user
       respond_to :json
-      
+
       def index
         @cars = Car.all
         render json: @cars
@@ -37,4 +37,4 @@ module Api
       end
     end
   end
-end   
+end

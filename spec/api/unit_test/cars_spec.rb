@@ -33,25 +33,25 @@ RSpec.describe Api::V1::CarsController, type: :request do
     context 'with valid parameters' do
       let(:valid_attributes) do
         {
-          name: "Honda Civic",
-          photo: "https://images.clickdealer.co.uk/vehicles/4759/4759877/full/108663623.jpg" ,
-          description: "Compact car",
-          price_per_day: 120, 
-          car_model: "Civic 2022", 
+          name: 'Honda Civic',
+          photo: 'https://images.clickdealer.co.uk/vehicles/4759/4759877/full/108663623.jpg',
+          description: 'Compact car',
+          price_per_day: 120,
+          car_model: 'Civic 2022',
           user_id: user1.id
         }
       end
 
       it 'creates a new car' do
         expect do
-          post '/api/v1/cars', params: {car: valid_attributes }, headers: {
+          post '/api/v1/cars', params: { car: valid_attributes }, headers: {
             Authorization: "Bearer #{access_token}"
           }
         end.to change(Car, :count).by(1)
       end
 
       it 'renders a JSON response with the new car' do
-        post '/api/v1/cars', params: {car: valid_attributes }, headers: {
+        post '/api/v1/cars', params: { car: valid_attributes }, headers: {
           Authorization: "Bearer #{access_token}"
         }
         expect(response).to have_http_status(:created)
@@ -69,7 +69,7 @@ RSpec.describe Api::V1::CarsController, type: :request do
           photo: '',
           car_model: '',
           price_per_day: '',
-          user_id: '' 
+          user_id: ''
         }
       end
 

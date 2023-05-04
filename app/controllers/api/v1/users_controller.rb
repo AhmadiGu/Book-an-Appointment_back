@@ -13,7 +13,7 @@ module Api
           render json: {
             username: @current_user.username,
             id: @current_user.id,
-            email: @current_user.email, 
+            email: @current_user.email,
             created_at: @current_user.created_at.iso8601
           }, status: :ok
         end
