@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_25_112042) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_25_095335) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,20 +24,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_112042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cars_on_user_id"
-  end
-
-  create_table "oauth_access_grants", force: :cascade do |t|
-    t.bigint "resource_owner_id", null: false
-    t.bigint "application_id", null: false
-    t.string "token", null: false
-    t.integer "expires_in", null: false
-    t.text "redirect_uri", null: false
-    t.string "scopes", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "revoked_at"
-    t.index ["application_id"], name: "index_oauth_access_grants_on_application_id"
-    t.index ["resource_owner_id"], name: "index_oauth_access_grants_on_resource_owner_id"
-    t.index ["token"], name: "index_oauth_access_grants_on_token", unique: true
   end
 
   create_table "oauth_access_tokens", force: :cascade do |t|
@@ -83,15 +69,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_112042) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
-    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username"
   end
 
   add_foreign_key "cars", "users"
-  add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "reservations", "cars"
   add_foreign_key "reservations", "users"

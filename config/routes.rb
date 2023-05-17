@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   use_doorkeeper
   devise_for :users
-
+  
   draw :api
 
-  # root 'documentation#index', as: 'documentation'
+  root 'documentation#index', as: 'documentation'
 
-  # get '/documentation', to: 'documentation#index'
-  # get '/documentation/authentication', to: 'documentation#authentication'
-  # get '/documentation/users', to: 'documentation#users'
-  # get '/documentation/classes', to: 'documentation#classes'
-  # get '/documentation/reservations', to: 'documentation#reservations'
+  get '/documentation', to: 'documentation#index'
+  get '/documentation/authentication', to: 'documentation#authentication'
+  get '/documentation/users', to: 'documentation#users'
+  get '/documentation/cars', to: 'documentation#cars'
+  get '/documentation/reservations', to: 'documentation#reservations'
 end

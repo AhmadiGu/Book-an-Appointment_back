@@ -3,15 +3,14 @@ namespace :api do
     scope :users, module: :users do
       post '/', to: 'registrations#create', as: :user_registration
     end
-
     get '/users/me', to: 'users#me'
-
-    resources :cars, only: [:index, :create, :destroy, :show]
-
-    resources :reservations, only: [:index, :create, :show]
-    post 'cars/:id/reservations', to: 'reservations#create'
-
-    post '/oauth/token/info', to: 'oauth#token_info'
+    get '/cars', to: 'cars#index', as: :cars
+    post 'cars', to: 'cars#create'
+    delete 'cars/:id', to: 'cars#destroy'
+    get 'cars/(:id)', to: 'cars#show'
+    get 'user/reservations', to: 'reservations#index'
+    post 'user/reserve', to: 'reservations#create'
+    get 'client/react'
   end
 end
 
